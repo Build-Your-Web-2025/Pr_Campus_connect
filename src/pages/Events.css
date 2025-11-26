@@ -1,0 +1,106 @@
+.events-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.events-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.events-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.events-header p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+.events-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.department-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dept-filter {
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  color: var(--text);
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dept-filter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+.dept-filter:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.dept-filter:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dept-filter.active {
+  background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  color: #050505;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.15);
+}
+
+.dept-filter.active:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.loading-events,
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+  background: rgba(17, 17, 17, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .events-container {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .events-header h1 {
+    font-size: 2rem;
+  }
+}
+
